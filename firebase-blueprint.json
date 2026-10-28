@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "companyName": { "type": "string" },
+        "country": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "ComplianceAudit": {
+      "title": "ComplianceAudit",
+      "description": "Export compliance audit record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "productName": { "type": "string" },
+        "hsCode": { "type": "string" },
+        "agreement": { "type": "string" },
+        "exWorksPrice": { "type": "number" },
+        "vnmPercentage": { "type": "number" },
+        "isOriginating": { "type": "boolean" },
+        "criterion": { "type": "string" },
+        "exportTargetCountry": { "type": "string" },
+        "phytosanitaryVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "auditData": { "type": "object" }
+      },
+      "required": ["userId", "productName", "hsCode", "agreement", "isOriginating"]
+    },
+    "CustomProduct": {
+      "title": "CustomProduct",
+      "description": "Custom agricultural or processed export product definition",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "hsCode": { "type": "string" },
+        "category": { "type": "string" },
+        "materials": { "type": "array" },
+        "exWorksPrice": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "name", "hsCode"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User account profiles"
+    },
+    "/users/{userId}/audits/{auditId}": {
+      "schema": "ComplianceAudit",
+      "description": "User compliance audit history"
+    },
+    "/users/{userId}/customProducts/{productId}": {
+      "schema": "CustomProduct",
+      "description": "User custom product BOMs"
+    }
+  }
+}

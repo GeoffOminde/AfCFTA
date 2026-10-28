@@ -1,0 +1,6 @@
+{
+  "name": "AfCFTA Rules of Origin Auditor",
+  "description": "A high-precision compliance auditing system for Kenyan food and agriculture exporters navigating AfCFTA and EAC tariff rules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
